@@ -19,7 +19,7 @@ function onMapClick(e) {
     mymap.addLayer(marker);
     console.log(`Map fdsfsdfsdfsdfsdfsddata: ${e.latlng}`)
 
-    fetch(`http://localhost:3000/weather?location=${e.latlng.lng},${e.latlng.lat}`).then((response)=> {
+    fetch(`/weather?location=${e.latlng.lng},${e.latlng.lat}`).then((response)=> {
         response.json().then((data)=>{
             if (data.error) {
                 error_msg.innerHTML=data.error

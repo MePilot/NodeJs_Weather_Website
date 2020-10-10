@@ -1,9 +1,10 @@
 const express=require('express')
-const app = express()
 const path = require('path')
 const hbs = require('hbs')
 const geo = require('./utils/geocode')
 
+const app = express()
+const port = process.env.PORT || 3000
 let x=0
 
 const publicDirPath=path.join(__dirname,'../public')
@@ -53,13 +54,8 @@ app.get('/weather',(req,res)=>{
             res.send({error:error})
         }
        
-        //console.log(data)
-        //console.log(error)
     })
 
-
-
-   
 })
 
 app.get('*',(req,res)=>{
@@ -67,7 +63,7 @@ app.get('*',(req,res)=>{
 
 })
 
-app.listen(3000,() => console.log('Server started'))
+app.listen(port,() => console.log(`Server started at port ${port}`))
 
 
 
