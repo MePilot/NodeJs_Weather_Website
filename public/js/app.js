@@ -44,7 +44,7 @@ mymap.on('click', onMapClick)
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     
-    fetch(`http://localhost:3000/weather?location=${weatherInput.value}`).then((response)=> {
+    fetch(`/weather?location=${weatherInput.value}`).then((response)=> {
     response.json().then((data)=>{
         if (data.error) {
             error_msg.innerHTML=data.error
