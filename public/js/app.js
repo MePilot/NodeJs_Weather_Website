@@ -1,7 +1,3 @@
-console.log('Page loaded!!!!')
-
-//import L from leaflet
-
 
 const weatherForm = document.querySelector('form')
 const weatherInput = document.querySelector('input')
@@ -31,8 +27,8 @@ function onMapClick(e) {
                 console.log(data)
                 weatherInput.className='form-control is-valid'
                 weatherInput.value=data.location.region
-                weatherCardHeader.innerHTML=`Регион: ${data.location.region}<br>Страна: ${data.location.country}`
-                weatherCardText.innerHTML=`Температура: ${data.current.temperature} ℃<br>Скорость ветра: ${data.current.wind_speed}мс<br>Влажность: ${data.current.humidity}%<br>Шанс осадков: ${data.current.precip}%`
+                weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}`
+                weatherCardText.innerHTML=`Temperature: ${data.current.temperature} ℃<br>Wind Speed: ${data.current.wind_speed} мс<br>Humidity: ${data.current.humidity} %<br>Rain chance ${data.current.precip} %`
                 weatherCardImg.src=data.current.weather_icons[0]
             }
             
@@ -54,8 +50,8 @@ weatherForm.addEventListener('submit',(e)=>{
         else {
             console.log(data)
             weatherInput.className='form-control is-valid'
-            weatherCardHeader.innerHTML=`Регион: ${data.location.region}<br>Страна: ${data.location.country}`
-            weatherCardText.innerHTML=`Температура: ${data.current.temperature} ℃<br>Скорость ветра: ${data.current.wind_speed}мс<br>Влажность: ${data.current.humidity}%<br>Шанс осадков: ${data.current.precip}%`
+            weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}`
+            weatherCardText.innerHTML=`Temperature: ${data.current.temperature} ℃<br>Wind speed: ${data.current.wind_speed} мс<br>Humidity: ${data.current.humidity} %<br>Rain chance: ${data.current.precip} %`
             weatherCardImg.src=data.current.weather_icons[0]
         }
         

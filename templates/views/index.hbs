@@ -28,25 +28,25 @@
   
   <div class="form-row">
     <div class="col-md-6 mb-3">
-      <label for="validationServer">Укажите город или место</label>
-      <input type="text" class="form-control" id="validationServer" placeholder="" oninvalid="this.setCustomValidity('Пожалуйста введите название города или места')" oninput="setCustomValidity('')" required="">
+      <label for="validationServer">Enter city or place</label>
+      <input type="text" class="form-control" id="validationServer" placeholder="" oninvalid="this.setCustomValidity('You must enter city or place!')" oninput="setCustomValidity('')" required="">
       <div class="invalid-feedback">
-        <p id="error_msg">Ошибка</p>
+        <p id="error_msg">Error</p>
       </div>
     </div>
     
   </div>
   
-  <button class="btn btn-primary" type="submit">Показать</button>
+  <button class="btn btn-primary" type="submit">Show forecast</button>
 </form>
 <div class="row">
   
   <div class="col">
   <div class="card text-white bg-primary mb-3" style="width:inherit; margin-top:3%;">
-  <div class="card-header" id="card_head">Header</div>
+  <div class="card-header" id="card_head" style="color: yellow; font-weight: bold;"></div>
   <div class="card-body">
     
-    <h5 class="card-title">Описание погоды</h5> 
+    <h5 class="card-title">Weather description</h5> 
     <p class="card-text" id="card_inner_text"></p>
         <img id="weather_img" src="" alt="">
   </div>
