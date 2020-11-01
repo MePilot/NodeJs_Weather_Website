@@ -5,7 +5,6 @@ const geo = require('./utils/geocode')
 
 const app = express()
 const port = process.env.PORT || 3000
-let x=0
 
 const publicDirPath=path.join(__dirname,'../public')
 const viewPath=path.join(__dirname,'../templates/views')
@@ -16,16 +15,10 @@ app.set('views',viewPath)
 app.use(express.static(publicDirPath))
 hbs.registerPartials(partialsPath)
 
-setInterval(()=>{
-    x++
-     
- }, 1000)
- 
- let date = new Date(Date.now())
- 
+
  app.get('',(req,res)=>{
     
-    res.render('index',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})
+    res.render('index')
 
 })
 
@@ -36,7 +29,7 @@ setInterval(()=>{
 //})
 
 app.get('/about',(req,res)=>{
-    res.render('about',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})
+    res.render('about')
 
 
 })
