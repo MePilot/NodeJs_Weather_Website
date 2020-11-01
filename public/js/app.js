@@ -13,8 +13,7 @@ function onMapClick(e) {
     if(marker) mymap.removeLayer(marker)
     marker = new L.Marker(e.latlng, {draggable:true});
     mymap.addLayer(marker);
-    console.log(`Map fdsfsdfsdfsdfsdfsddata: ${e.latlng}`)
-
+   
     fetch(`/weather?location=${e.latlng.lng},${e.latlng.lat}`).then((response)=> {
         response.json().then((data)=>{
             if (data.error) {
@@ -24,10 +23,10 @@ function onMapClick(e) {
                
             }
             else {
-                console.log(data)
+               
                 weatherInput.className='form-control is-valid'
                 weatherInput.value=data.location.region
-                weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}`
+                weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}<br> Observation Time: ${data.current.observation_time}`
                 weatherCardText.innerHTML=`Temperature: ${data.current.temperature} ℃<br>Wind Speed: ${data.current.wind_speed} мс<br>Humidity: ${data.current.humidity} %<br>Rain chance ${data.current.precip} %`
                 weatherCardImg.src=data.current.weather_icons[0]
             }
@@ -48,11 +47,14 @@ weatherForm.addEventListener('submit',(e)=>{
            
         }
         else {
-            console.log(data)
+           
             weatherInput.className='form-control is-valid'
-            weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}`
+            weatherCardHeader.innerHTML=`Region: ${data.location.region}<br>Country: ${data.location.country}<br>Observation Time: ${data.current.observation_time}`
             weatherCardText.innerHTML=`Temperature: ${data.current.temperature} ℃<br>Wind speed: ${data.current.wind_speed} мс<br>Humidity: ${data.current.humidity} %<br>Rain chance: ${data.current.precip} %`
             weatherCardImg.src=data.current.weather_icons[0]
+            if(marker) mymap.removeLayer(marker)
+            marker = new L.Marker({lat:data.location.lat, lng:data.location.lon}, {draggable:true});
+            mymap.addLayer(marker);
         }
         
     })

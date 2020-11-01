@@ -29,11 +29,11 @@ setInterval(()=>{
 
 })
 
-app.get('/forecast',(req,res)=>{
-    res.render('forecast',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})
+//app.get('/forecast',(req,res)=>{
+    //res.render('forecast',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})
 
 
-})
+//})
 
 app.get('/about',(req,res)=>{
     res.render('about',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})

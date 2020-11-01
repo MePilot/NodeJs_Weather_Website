@@ -19,16 +19,17 @@
 <div class="row">
   
  <div class="col">
-
+<label for="mapid">Click anywhere on the map</label>
  <div id="mapid" style="height:300px; width:inherit"></div>
  </div>
 
 </div>
+
 <form style="margin-top:2%;">
   
   <div class="form-row">
     <div class="col-md-6 mb-3">
-      <label for="validationServer">Enter city or place</label>
+      <label for="validationServer">Or enter a city or a place</label>
       <input type="text" class="form-control" id="validationServer" placeholder="" oninvalid="this.setCustomValidity('You must enter city or place!')" oninput="setCustomValidity('')" required="">
       <div class="invalid-feedback">
         <p id="error_msg">Error</p>
@@ -55,11 +56,6 @@
   </div>
 
 </div>
-
-
-
-   
-
 
    </div>
   
