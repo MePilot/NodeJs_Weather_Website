@@ -4,7 +4,7 @@ const hbs = require('hbs')
 const geo = require('./utils/geocode')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 
 const publicDirPath=path.join(__dirname,'../public')
 const viewPath=path.join(__dirname,'../templates/views')
@@ -22,11 +22,6 @@ hbs.registerPartials(partialsPath)
 
 })
 
-//app.get('/forecast',(req,res)=>{
-    //res.render('forecast',{curr_time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`})
-
-
-//})
 
 app.get('/about',(req,res)=>{
     res.render('about')
@@ -38,7 +33,7 @@ app.get('/weather',(req,res)=>{
         return res.send({error:'You must provide a location!'})
     }
 
-    geo.geo(req.query.location, (error,data)=> {
+    geo(req.query.location, (error,data)=> {
         
         if(!error) {
             res.send(data)

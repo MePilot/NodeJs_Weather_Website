@@ -12,15 +12,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
-    {{>header}}
-    <br>
+  {{>header}}
+  <br>
 <div class="container">
-    
-<div class="row">
-  
- <div class="col">
-<label for="mapid">Click anywhere on the map</label>
- <div id="mapid" style="height:300px; width:inherit"></div>
+  <div class="row">
+    <div class="col">
+      <label for="mapid">Click anywhere on the map</label>
+      <div id="mapid" style="height:300px; width:inherit"></div>
  </div>
 
 </div>
@@ -43,13 +41,15 @@
 <div class="row">
   
   <div class="col">
-  <div class="card text-white bg-primary mb-3" style="width:inherit; margin-top:3%;">
-  <div class="card-header" id="card_head" style="color: yellow; font-weight: bold;"></div>
+  <div class="card text-white bg-dark mb-3" style="width:inherit; margin-top:3%;">
+  <div class="card-header" id="card_head" style="color: white; font-weight: bold;"></div>
   <div class="card-body">
-    
     <h5 class="card-title">Weather description</h5> 
-    <p class="card-text" id="card_inner_text"></p>
-        <img id="weather_img" src="" alt="">
+    <div class="d-flex justify-content-start align-items-center">
+      <p class="card-text" id="card_inner_text" style="color: yellow;"></p>
+        <img id="weather_img" src="" alt="" style="margin-left: 100px;">
+    </div>
+    
   </div>
 </div>
   

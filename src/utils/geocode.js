@@ -2,7 +2,7 @@ const request = require('request')
 
 const geoCode = (address, callback) => {
 
-    const URL=`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=pk.eyJ1IjoibWVwaWxvdCIsImEiOiJja2Z0dnIxZ20wcXpvMnV0YjBuMTNraTljIn0.AwOdcQIHiW1BO53ucg_DfA&limit=1`
+    const URL=`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${process.env.MAPBOX_API}&limit=1`
     request({url:URL,json:true}, (error, response)=> {
 
         if(error) {
@@ -26,29 +26,7 @@ const geo = (name, callback) => {
            callback(error,undefined)
         }
         else {
-            const URL=`http://api.weatherstack.com/current?access_key=78133333ac5e8cebbcf2cc5382f3d708&query=${data.lat},${data.lon}`
-            request({url:URL, json:true}, (error, response)=> {
-            if(error) {
-                callback('Error. Unable to connect',undefined)
-            }
-            else if (response.body.error) {
-                callback('Place not found', undefined)
-            }
-        else {
-            callback(undefined,response.body)
-        }
-    }
-    )}
-})}
-const geoMap = (name, callback) => {
-    
-    geoCode(name, (error, data)=> {
-       
-        if(error) {
-           callback(error,undefined)
-        }
-        else {
-            const URL=`http://api.weatherstack.com/current?access_key=78133333ac5e8cebbcf2cc5382f3d708&query=${data.lon},${data.lat}`
+            const URL=`http://api.weatherstack.com/current?access_key=${process.env.WEATHER_STACK_API}&query=${data.lat},${data.lon}`
             request({url:URL, json:true}, (error, response)=> {
             if(error) {
                 callback('Error. Unable to connect',undefined)
@@ -64,4 +42,4 @@ const geoMap = (name, callback) => {
 })}
 
 
-module.exports={geoCode:geoCode, geo:geo,geoMap:geoMap}
+module.exports=geo
